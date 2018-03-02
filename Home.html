@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>主页</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <script type="text/javascript" charset="utf-8" src="layui/layui.js"></script>
+</head>
+<body>
+<!-- 顶部开始 -->
+<div class="container">
+    <div class="logo">
+        <a href="#">供应商系统</a>
+    </div>
+    <div class="left-open">
+        <i title="展开菜单" class="iconfont"></i>
+    </div>
+    <ul class="layui-nav right">
+        <li class="layui-nav-item">
+            <a href="javascript:;">
+                管理员
+                <span class="layui-nav-more"></span>
+            </a>
+        </li>
+        <li class="layui-nav-item">
+            <a class="loginout" href="#">注销</a>
+        </li>
+        <span class="layui-nav-bar" style="left:60px;top:40px;width:0px;opacity:0;"></span>
+    </ul>
+</div>
+<!-- 顶部结束 -->
+
+<!-- 中部开始 -->
+<!-- 左侧菜单开始 -->
+<div class="left-nav">
+    <div class="side-nav">
+        <ul id="nav">
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont"></i>
+                    <cite>系统管理</cite>
+                    <i class="iconfont nav_right"></i>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a _href="javascript:;">
+                            <i class="iconfont"></i>
+                            <cite>菜单一</cite>
+                        </a>
+                    </li>
+                    <li>
+                        <a _href="javascript:;">
+                            <i class="iconfont"></i>
+                            <cite>菜单二</cite>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont"></i>
+                    <cite>订单管理</cite>
+                    <i class="iconfont nav_right"></i>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a _href="javascript:;">
+                            <i class="iconfont"></i>
+                            <cite>菜单一</cite>
+                        </a>
+                    </li>
+                    <li>
+                        <a _href="javascript:;">
+                            <i class="iconfont"></i>
+                            <cite>菜单二</cite>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont"></i>
+                    <cite>系统报表</cite>
+                    <i class="iconfont nav_right"></i>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a _href="javascript:;">
+                            <i class="iconfont"></i>
+                            <cite>菜单一</cite>
+                        </a>
+                    </li>
+                    <li>
+                        <a _href="javascript:;">
+                            <i class="iconfont"></i>
+                            <cite>菜单二</cite>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- 左侧菜单结束 -->
+<!-- 右侧主体显示区域 -->
+<div class="page-content" style="left:0px;">
+    <div class="layui-tab tab" lay-filter="imcnav_tab" id="ImcTabTip" lay-allowclose="true" overflow>
+        <ul class="layui-tab-title">
+            <li>
+                我的桌面<i class="layui-icon layui-unselect layui-tab-close"></i>
+            </li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item">
+                <iframe src="#" frameborder="0" scrolling="yes" class="imcIframe" style="height: 790px;"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-content-bg" style="display: none;"></div>
+<!-- 右侧主体显示区域 -->
+<!-- 中部结束 -->
+<!-- 底部开始 -->
+<div class="footer">
+    <div class="copyright">Copyright ©2018 ImcAdmin v1.0 All Rights Reserved</div>
+</div>
+<!-- 底部结束 -->
+<!-- tab菜单右键弹出菜单 -->
+<ul class="rightMenu" id="rightMenu" style="left:563px;top:53px;display: none;">
+    <li data-type="fresh" data-id="20">刷新</li>
+    <li data-type="current" data-id="20">关闭当前</li>
+    <li data-type="other" data-id="20">关闭其它</li>
+    <li data-type="all" data-id="20">关闭所有</li>
+</ul>
+<script>
+//    layui.use(['layer'],function(){
+//        var layer = layui.layer;
+//        layer.msg('Hello World');
+//    });
+//    layui.config({
+//        dir:'layui/',//layui.js所在路径
+//        base:'js/modules/'//存放模块的目录
+//    }).use('index');
+
+
+
+layui.config({
+    base: './static/js/'
+    ,version: '101100'
+}).use('admin');
+layui.use(['jquery','admin'], function(){
+    var $ = layui.jquery;
+    $(function(){
+        var login = JSON.parse(localStorage.getItem("login"));
+        if(login){
+            if(login=0){
+                window.location.href='./login.html';
+                return false;
+            }else{
+                return false;
+            }
+        }else{
+            window.location.href='./login.html';
+            return false;
+        }
+    });
+});
+
+
+
+</script>
+</body>
+</html>
